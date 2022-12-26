@@ -1,2 +1,2 @@
-export const BRAND: string = 'Sample Site Title';
+export const BRAND: string = 'Son of Bertram';
 export const AUTHOR: string = 'Joe Ballard';

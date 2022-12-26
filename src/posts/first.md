@@ -1,7 +1,7 @@
 ---
-title: First Fake Post
-slug: first
-date: 2022-12-10
+title: First Post
+slug: first-post
+date: 2022-12-26
 ---
 
-Intentionally Empty
+Content to come later ...
