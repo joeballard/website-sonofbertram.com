@@ -1,6 +1,6 @@
-# sonofbertram.com
+# website-sonofbertram.com
 
-__professional website:__
+__personal website:__
 [sonofbertram.com](https://sonofbertram.com)
 
 __starting from:__
