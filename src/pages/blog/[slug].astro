@@ -1,0 +1,54 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const posts = await Astro.glob("../../posts/*.md");
+
+    return posts.map((post) => ({
+        params: {
+            slug: post.frontmatter.slug,
+        },
+        props: {
+            post,
+        },
+    }));
+}
+
+const { Content, frontmatter } = Astro.props.post;
+---
+
+<Layout title={frontmatter.title}>
+    <div class="post-head">
+        <div class="post-title">{frontmatter.title}</div>
+        <div class="post-date">
+            {new Date(frontmatter.date).toISOString().split("T")[0]}
+        </div>    
+    </div>
+    <article>
+        <Content />
+    </article>
+</Layout>
+
+<style>
+    .post-head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .post-title {
+        font-size: larger;
+        font-weight: bold;
+        color: grey;
+    }
+
+    .post-date {
+        color: grey;
+    }
+
+    article {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;    
+        margin-top: 0 !important;
+        margin-bottom: 8px !important;  
+    }
+</style>

@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { BRAND } from "../../branding";
+
+const title = BRAND + " - Blog";
+const posts = await Astro.glob("../../posts/*.md");
+posts.sort((a,b) => a.frontmatter.date < b.frontmatter.date ? 1 : -1)
+---
+
+<Layout title={title}>
+    <div class="posts-list">
+        {
+            posts.map((post) => (
+                <div class="post-row">
+                    <a class="post-link" target="_blank" href={`/blog/${post.frontmatter.slug}`} >
+                        {post.frontmatter.title}
+                    </a>
+                    -
+                    <span class="post-date">
+                        {new Date(post.frontmatter.date).toISOString().split("T")[0]}
+                    </span>
+                </div>
+            ))
+        }
+    </div>
+</Layout>

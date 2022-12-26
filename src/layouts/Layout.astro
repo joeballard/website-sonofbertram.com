@@ -1,0 +1,40 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { AUTHOR } from "../branding";
+
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>{title}</title>         
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="author" content={AUTHOR} />
+        <meta name="title" content={title} /> 
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.classless.min.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>jb</text></svg>" />  
+    </head>
+    <body>
+        <Header />
+        <hr />
+        <main>
+            <slot />
+        </main>
+        <hr />
+        <Footer />
+    </body>
+</html>
+
+<style>
+    main {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+</style>
